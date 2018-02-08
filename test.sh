@@ -2,7 +2,7 @@
 
 [ "$NDK_ROOT" != "" ] || echo "Need to set NDK_ROOT!"
 
-ARCH=x86
+ARCH=x86 # Comment to build arm
 
 if [ "$ARCH" == "x86" ]; then
 	SYSROOT=$NDK_ROOT/platforms/android-19/arch-x86
