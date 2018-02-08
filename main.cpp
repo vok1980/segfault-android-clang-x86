@@ -1,9 +1,8 @@
 
 
-class Handler
-{
-};
+class Handler;
 
+// Comment ANY of commented lines to fix segmentation fault on android-clang-x86 with ndk-r15c
 
 class Boo
 {
@@ -22,15 +21,16 @@ public:
 	bool (Handler::*b)() = nullptr; // comment to fix
 };
 
-// static const auto boo1 = [](){
-// 	auto res = Boo()
-// 		// .foo(nullptr)
-// 		;
-// 		res.foo(nullptr);
-// 	return res;
-// }();
+static const auto boo00 = [](){
+	auto res = Boo()
+		// .foo(nullptr)
+		;
+		res.foo(nullptr);
+	return res;
+}();
 
-static const auto boo =
+
+static const auto boo01 =
 	Boo()
 		.boo(nullptr)
 		.foo(nullptr) // comment to fix
@@ -39,5 +39,11 @@ static const auto boo =
 
 int main()
 {
+	const auto boo01 =
+		Boo()
+			.boo(nullptr)
+			.foo(nullptr)
+			;
+
 	return 0;
 }
