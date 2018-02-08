@@ -14,3 +14,8 @@ LD_OPTIONS="--sysroot=$SYSROOT -target i686-none-linux-android -gcc-toolchain $N
 
 $CXX $CXX_OPTIONS -c main.cpp -o main.o
 $CXX $LD_OPTIONS -o test main.o
+
+
+adb push test /data/local/tmp/test
+adb shell chmod 0775 /data/local/tmp/test
+adb shell "cd /data/local/tmp && ./test && echo Success! || echo Failed! "
