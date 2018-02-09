@@ -17,6 +17,7 @@ fi
 CXX=$NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++
 
 CXX_OPTIONS="--sysroot=$SYSROOT -target $TARGET -O0 -std=c++14"
+CXX_OPTIONS="$CXX_OPTIONS -mstackrealign"
 LD_OPTIONS="--sysroot=$SYSROOT -target $TARGET -gcc-toolchain $GCC_TOOLCHAIN -pie"
 
 $CXX $CXX_OPTIONS -c main.cpp -o main.o && \
